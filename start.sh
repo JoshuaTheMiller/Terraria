@@ -10,6 +10,13 @@ extractedPassword=${BASH_REMATCH[1]}
 if [ -z $extractedPassword ] 
 then 
     echo "Password not set from argument"
+elif [ $extractedPassword == "password" ]
+then
+    SERVER_CONFIG_PATH="/world/config.json"
+
+    jq --arg p "" '.ServerPassword=$p' $SERVER_CONFIG_PATH | sponge $SERVER_CONFIG_PATH
+
+    echo "Password cleared"
 else
     SERVER_CONFIG_PATH="/world/config.json"
 
