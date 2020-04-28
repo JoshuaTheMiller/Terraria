@@ -9,9 +9,13 @@ extractedPassword=${BASH_REMATCH[1]}
 
 if [ -z $extractedPassword ] 
 then 
-    echo "Password not set from commandline"
+    echo "Password not set from argument"
 else
-    echo "Password will be set from command line"
+    SERVER_CONFIG_PATH="/world/config.json"
+
+    jq --arg p "$extractedPassword" '.ServerPassword=$p' $SERVER_CONFIG_PATH | sponge $SERVER_CONFIG_PATH
+
+    echo "Password set from argument"
 fi
 
 mono --server --gc=sgen -O=all TerrariaServer.exe -configpath /world -worldpath /world -logpath /world "$@"
