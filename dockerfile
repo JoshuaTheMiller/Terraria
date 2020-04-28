@@ -1,5 +1,5 @@
 # Want to use slim, but ran into issues...
-FROM mono:6.0.0
+FROM mono:6.8
 
 # https://github.com/Pryaxis/TShock/releases
 ENV TSHOCK_VERSION=4.3.26 

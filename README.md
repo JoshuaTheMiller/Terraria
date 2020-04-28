@@ -7,5 +7,3 @@ A "containerized" version of Terria Server (with [TShock](https://tshock.co/xf/i
 ⬜ Password replace at startup (using jq and copied script?)
 
 ⬜ Non-root user for running Mono+Terraria
-
-⬜ Small container footprint
