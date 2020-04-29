@@ -1,6 +1,6 @@
 <div align="center">
 
-# TerrariaServer-Container
+# Containerized Terraria Server
 
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/trfc/terraria?style=flat-square) ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/trfc/terraria?style=flat-square) ![Docker Pulls](https://img.shields.io/docker/pulls/trfc/terraria?style=flat-square)
 
