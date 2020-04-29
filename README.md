@@ -8,8 +8,10 @@
 
 </div>
 
-## Features
+## Upcoming Features
 
 ⬜ Password replace at startup (using jq and copied script?)
 
 ⬜ Non-root user for running Mono+Terraria
+
+⬜ Better README (with instructions)
