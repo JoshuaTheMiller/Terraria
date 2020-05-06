@@ -19,7 +19,7 @@ First and foremost, you're going to need Docker. Please check out [Docker's docu
 First, start the container (and your server) in interactive mode:
 
 ```bash
-docker run -it --rm -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest
+docker run -it -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest
 ```
 
 Next, go through the prompts as it asks (make note of the name of your world).
