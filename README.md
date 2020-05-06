@@ -16,7 +16,7 @@ I do use it myself though...
 
 First and foremost, you're going to need Docker. Please check out [Docker's documentation](https://docs.docker.com/engine/install/) for how to install it on the various supported platforms. While the install may be different per platform, the rest of the steps will remain the same (containers sure are nice, aren't they?).
 
-First, start the container (and your server) in interactive mode:
+After installing docker, start the container (and your server) in interactive mode:
 
 ```bash
 docker run -it -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest
