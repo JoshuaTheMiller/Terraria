@@ -56,3 +56,7 @@ Finally, after the server starts, exit by pressing `Ctrl+p` followed immediately
 ⬜ Better README (with instructions)
 
 [dockerHub]: https://hub.docker.com/repository/docker/trfc/terraria
+
+## Additional Documentation
+
+* [TShock Command Line Parameters](https://tshock.readme.io/docs/command-line-parameters)
