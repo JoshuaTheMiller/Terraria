@@ -16,6 +16,27 @@ I do use it myself though...
 
 First and foremost, you're going to need Docker. Please check out [Docker's documentation](https://docs.docker.com/engine/install/) for how to install it on the various supported platforms. While the install may be different per platform, the rest of the steps will remain the same (containers sure are nice, aren't they?).
 
+After installing docker, just run the following command and wait a few minutes:
+
+```bash
+docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest -autocreate 1 -world Terrarium -password PleaseChange!
+```
+
+### Explanation of the line
+
+| Parameter/Option | Description |
+| - | - |
+| `-d` | run the container in detached mode so you can go about your day. |
+| `-p 7777:7777` | map port 7777 to the container's port 7777 so that you can connect to the server (since the command does not change the server from its default port). |
+| `--memory=500m` | set the max amount of memory to use so that your system doesn't crash because of out of memory exceptions. |
+| `--mount source=terraria,target=/world` | create (or attach to if existing) a volume so that your world persists even when the container shuts down. |
+| `--name="terraria"` | name the running container "terraria" |
+| `trfc/terraria:latest` | use this image 😊 |
+| `-autocreate 1 -world Terrarium` | create a small world named Terrarium OR use an existing world named Terrarium (default Terraria server command) |
+| `-password PleaseChange!` | sets the server password to "PleaseChange!" |
+
+## Quickstart with more control
+
 After installing docker, start the container (and your server) in interactive mode:
 
 ```bash
