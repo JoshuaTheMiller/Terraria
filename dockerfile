@@ -19,6 +19,8 @@ RUN unzip tshock_$TSHOCK_VERSION.zip -d /tshock && \
 # Allow for external data
 VOLUME ["/world", "/tshock/ServerPlugins"]
 
+COPY default_config.json world/
+
 # Set working directory to server
 WORKDIR /tshock
 
