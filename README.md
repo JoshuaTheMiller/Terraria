@@ -19,7 +19,7 @@ First and foremost, you're going to need Docker. Please check out [Docker's docu
 After installing docker, just run the following command and wait a few minutes:
 
 ```bash
-docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest -autocreate 1 -world /world/Terrarium.wld
+docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
 ```
 
 ### Explanation of the command above
@@ -46,6 +46,14 @@ docker run -it -p 7777:7777 --memory=500m --mount source=terraria,target=/world 
 Next, go through the prompts as it asks (make note of the name of your world).
 
 Finally, after the server starts, exit by pressing `Ctrl+p` followed immediately by `Ctrl+q`. This will cause the container to switch to daemon mode, which will allow it to keep running in the background.
+
+## Quickly retrieve auth code
+
+If the authcode.txt file was left at its default location, the following command will print it to the command line:
+
+```bash
+docker run --rm --mount source=terraria,target=/world --name="volumeinspect" trfc/vimtainer cat /world/authcode.txt
+```
 
 ## Upcoming Features
 
