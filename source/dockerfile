@@ -1,15 +1,14 @@
 # Want to use slim, but ran into issues...
 FROM mono:6.8
+LABEL Author=JoshuaMiller
 
 # https://github.com/Pryaxis/TShock/releases
-ENV TSHOCK_VERSION=4.3.26 
-
-LABEL Author=JoshuaMiller
+ARG TSHOCK_VERSION=4.3.26 
 
 # jq --> for finding/replacing json value easily
 # moreutils --> to leverage sponge, which makes outputing a file from the jq step easier
 RUN apt-get update && \
-    apt-get install -y jq moreutils zip
+    apt-get install -y jq moreutils unzip --no-install-recommends
 
 ADD https://github.com/NyxStudios/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip /
 RUN unzip tshock_$TSHOCK_VERSION.zip -d /tshock && \
