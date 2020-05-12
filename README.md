@@ -4,7 +4,7 @@
 
 *Still very much a work in progress*
 
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/trfc/terraria?style=flat-square)][dockerHub] [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/trfc/terraria?style=flat-square)][dockerHub] [![Docker Pulls](https://img.shields.io/docker/pulls/trfc/terraria?style=flat-square)][dockerHub]
+[![MediumLink](https://img.shields.io/badge/Read%20about%20me%20on%20-Medium-lightgrey?style=flat-square)][medium] [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/trfc/terraria?style=flat-square)][dockerHub] [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/trfc/terraria?style=flat-square)][dockerHub] [![Docker Pulls](https://img.shields.io/docker/pulls/trfc/terraria?style=flat-square)][dockerHub]
 
 *A containerized version of Terria Server (with [TShock](https://tshock.co/xf/index.php)) running on Linux, courtesy of [Mono](https://www.mono-project.com/)!*
 
@@ -81,8 +81,9 @@ For now, you can target the `sudo` tag (`trfc/terraria:sudo`) instead of `latest
 
 ⬜ Better README (with instructions)
 
-[dockerHub]: https://hub.docker.com/repository/docker/trfc/terraria
-
 ## Additional Documentation
 
 * [TShock Command Line Parameters](https://tshock.readme.io/docs/command-line-parameters)
+
+[dockerHub]: https://hub.docker.com/repository/docker/trfc/terraria
+[medium]: https://bit.ly/MediumTerrariaServer
