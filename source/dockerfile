@@ -20,15 +20,10 @@ RUN apt-get update && \
     unzip tshock_$TSHOCK_VERSION.zip -d /tshock && \
     rm tshock_$TSHOCK_VERSION.zip && \
     useradd -u $TERRARIA_USER_UID $TERRARIA_USER_NAME && \
-    chown -R $TERRARIA_USER_NAME tshock/ && \ 
-    chmod -R 777 tshock/ && \
-    chmod u+x /tshock/TerrariaServer.exe && \    
-    chown -R $TERRARIA_USER_NAME world && \
-    chmod -R 777 world && \                      
-    mkdir -p /home/terraria/ && \
-    chown -R $TERRARIA_USER_NAME /home/terraria/ && \
-    chown $TERRARIA_USER_NAME /usr/local/bin/start.sh && \
-    chmod 777 /usr/local/bin/start.sh
+    chown -R $TERRARIA_USER_NAME tshock/ && chmod 700 /tshock/TerrariaServer.exe && chmod -R u+rw tshock/ && \    
+    chown -R $TERRARIA_USER_NAME world && chmod -R 700 world && \                      
+    mkdir -p /home/terraria/ && chown -R $TERRARIA_USER_NAME /home/terraria/ && \
+    chown $TERRARIA_USER_NAME /usr/local/bin/start.sh && chmod 500 /usr/local/bin/start.sh
 
 # Allow for external data
 VOLUME ["/world", "/tshock/ServerPlugins"]
