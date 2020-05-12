@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🚧 Containerized Terraria Server 🚧 Still very much a work in progress
+# 🚧 Containerized Terraria Server 🚧 
+
+*Still very much a work in progress*
 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/trfc/terraria?style=flat-square)][dockerHub] [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/trfc/terraria?style=flat-square)][dockerHub] [![Docker Pulls](https://img.shields.io/docker/pulls/trfc/terraria?style=flat-square)][dockerHub]
 
