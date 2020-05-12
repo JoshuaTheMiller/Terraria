@@ -21,7 +21,7 @@ First and foremost, you're going to need Docker. Please check out [Docker's docu
 After installing docker, just run the following command and wait a few minutes:
 
 ```bash
-docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/tar -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
+docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
 ```
 
 ### Explanation of the command above
@@ -59,7 +59,7 @@ docker run --rm --mount source=terraria,target=/world --name="volumeinspect" trf
 
 ## Migration issues related to permissions
 
-*Addressing the 84 pull as of the time of this writing...*
+*Addressing the 84 pulls as of the time of this writing...*
 
 If you are running into permission issues after updating to the latest version of this image, and **if you used the quickstart command from above**, consider running the following command:
 
