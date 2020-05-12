@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚧 Containerized Terraria Server 🚧
+# 🚧 Containerized Terraria Server 🚧 Still very much a work in progress
 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/trfc/terraria?style=flat-square)][dockerHub] [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/trfc/terraria?style=flat-square)][dockerHub] [![Docker Pulls](https://img.shields.io/docker/pulls/trfc/terraria?style=flat-square)][dockerHub]
 
@@ -8,9 +8,9 @@
 
 </div>
 
-## Still very much a work in progress
+## ❗ Permission Issues after pulling latest?
 
-I do use it myself though...
+See [Migration issues related to permissions](#Migration-issues-related-to-permissions) below.
 
 ## Quickstart
 
@@ -19,7 +19,7 @@ First and foremost, you're going to need Docker. Please check out [Docker's docu
 After installing docker, just run the following command and wait a few minutes:
 
 ```bash
-docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
+docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/tar -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
 ```
 
 ### Explanation of the command above
@@ -55,11 +55,27 @@ If the authcode.txt file was left at its default location, the following command
 docker run --rm --mount source=terraria,target=/world --name="volumeinspect" trfc/vimtainer cat /world/authcode.txt
 ```
 
+## Migration issues related to permissions
+
+*Addressing the 84 pull as of the time of this writing...*
+
+If you are running into permission issues after updating to the latest version of this image, and **if you used the quickstart command from above**, consider running the following command:
+
+```bash
+docker run --rm -d --mount source=terraria,target=/world ubuntu chown -R 8433 world
+```
+
+This addresses a single issue: Terraria.exe now runs under user 8433, and thus needs permission/ownership of the *world* folder (arguably). The command above mounts to the "terraria" volume and makes user 8433 the owner of the *world* folder. The container then stops and removes itself (`--rm`).
+
+### Alternatively
+
+For now, you can target the `sudo` tag (`trfc/terraria:sudo`) instead of `latest`.
+
 ## Upcoming Features
 
 ✅ Password replace at startup (using jq and copied script?)
 
-⬜ Non-root user for running Mono+Terraria
+✅ Non-root user for running Mono+Terraria
 
 ⬜ Better README (with instructions)
 
