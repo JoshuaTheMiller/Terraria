@@ -5,28 +5,37 @@ LABEL Author=JoshuaMiller
 # https://github.com/Pryaxis/TShock/releases
 ARG TSHOCK_VERSION=4.3.26 
 
+ARG TERRARIA_USER_UID=8433
+ARG TERRARIA_USER_NAME=terraria
+
+COPY default_config.json world/
+COPY start.sh /usr/local/bin/ 
+
+ADD https://github.com/NyxStudios/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip /
+
 # jq --> for finding/replacing json value easily
 # moreutils --> to leverage sponge, which makes outputing a file from the jq step easier
 RUN apt-get update && \
-    apt-get install -y jq moreutils unzip --no-install-recommends
-
-ADD https://github.com/NyxStudios/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip /
-RUN unzip tshock_$TSHOCK_VERSION.zip -d /tshock && \
+    apt-get install -y jq moreutils unzip --no-install-recommends && \    
+    unzip tshock_$TSHOCK_VERSION.zip -d /tshock && \
     rm tshock_$TSHOCK_VERSION.zip && \
-    chmod 777 /tshock/TerrariaServer.exe
+    useradd -u $TERRARIA_USER_UID $TERRARIA_USER_NAME && \
+    chown -R $TERRARIA_USER_NAME tshock/ && \ 
+    chmod -R 777 tshock/ && \
+    chmod u+x /tshock/TerrariaServer.exe && \    
+    chown -R $TERRARIA_USER_NAME world && \
+    chmod -R 777 world && \                      
+    mkdir -p /home/terraria/ && \
+    chown -R $TERRARIA_USER_NAME /home/terraria/ && \
+    chown $TERRARIA_USER_NAME /usr/local/bin/start.sh && \
+    chmod 777 /usr/local/bin/start.sh
 
 # Allow for external data
 VOLUME ["/world", "/tshock/ServerPlugins"]
 
-COPY default_config.json world/
-
 # Set working directory to server
 WORKDIR /tshock
 
-COPY start.sh /usr/local/bin/ 
-RUN chmod +x /usr/local/bin/start.sh
-
-RUN useradd -u terraria
 USER terraria
 
 # run the start script, which will set the password if provided and then run Terraria
