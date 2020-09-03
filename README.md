@@ -1,8 +1,6 @@
 <div align="center">
 
-# 🚧 Containerized Terraria Server 🚧 
-
-*Still very much a work in progress*
+# Containerized Terraria Server
 
 [![MediumLink](https://img.shields.io/badge/Read%20about%20me%20on%20-Medium-lightgrey?style=flat-square)][medium] [![MIT License](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](https://github.com/JoshuaTheMiller/Terraria) 
 
@@ -81,7 +79,7 @@ For now, you can target the `sudo` tag (`trfc/terraria:sudo`) instead of `latest
 
 ✅ Non-root user for running Mono+Terraria
 
-⬜ Better README (with instructions)
+✅ Better README (with instructions)
 
 ## Additional Documentation
 
