@@ -2,6 +2,8 @@
 FROM mono:6.8
 LABEL Author=JoshuaMiller
 
+EXPOSE 7777
+
 # https://github.com/Pryaxis/TShock/releases
 ARG TSHOCK_VERSION=4.3.26 
 
@@ -35,3 +37,4 @@ USER terraria
 
 # run the start script, which will set the password if provided and then run Terraria
 ENTRYPOINT ["start.sh"]
+CMD ["-autocreate", "1", "-world", "/world/Terrarium.wld"]
