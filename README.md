@@ -1,6 +1,6 @@
 <div align="center">
 
-# Containerized Terraria Server
+# Containerized Terraria+Shock Server
 
 [![Discord](https://img.shields.io/discord/768637103402909716?label=Discord&style=flat-square)](https://discordapp.com/widget?id=768637103402909716&theme=dark) [![MediumLink](https://img.shields.io/badge/Read%20about%20me%20on%20-Medium-lightgrey?style=flat-square)][medium] [![MIT License](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](https://github.com/JoshuaTheMiller/Terraria) 
 
