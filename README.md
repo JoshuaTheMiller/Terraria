@@ -2,6 +2,8 @@
 
 # Containerized Terraria + TShock Server
 
+A Terraria with TShock server image! For the **Vanilla version**, check out the following: | [GitHub](https://github.com/JoshuaTheMiller/Vanilla-Terraria) | [Docker][vanDockerHub] |
+
 [![Discord](https://img.shields.io/discord/768637103402909716?label=Discord&style=flat-square)](https://discordapp.com/widget?id=768637103402909716&theme=dark) [![MediumLink](https://img.shields.io/badge/Read%20about%20me%20on%20-Medium-lightgrey?style=flat-square)][medium] [![MIT License](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](https://github.com/JoshuaTheMiller/Terraria) 
 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/trfc/terraria?style=flat-square)][dockerHub] [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/trfc/terraria?style=flat-square)][dockerHub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/trfc/terraria/latest?style=flat-square) [![Docker Pulls](https://img.shields.io/docker/pulls/trfc/terraria?style=flat-square)][dockerHub]
@@ -86,4 +88,5 @@ For now, you can target the `sudo` tag (`trfc/terraria:sudo`) instead of `latest
 * [TShock Command Line Parameters](https://tshock.readme.io/docs/command-line-parameters)
 
 [dockerHub]: https://hub.docker.com/repository/docker/trfc/terraria
+[vanDockerHub]: https://hub.docker.com/repository/docker/trfc/vanilla-terraria
 [medium]: https://bit.ly/MediumTerrariaServer
