@@ -8,6 +8,8 @@ A Terraria with TShock server image! For the **Vanilla version**, check out the 
 
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/trfc/terraria?style=flat-square)][dockerHub] [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/trfc/terraria?style=flat-square)][dockerHub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/trfc/terraria/latest?style=flat-square) [![Docker Pulls](https://img.shields.io/docker/pulls/trfc/terraria?style=flat-square)][dockerHub]
 
+[![CodeFactor](https://www.codefactor.io/repository/github/joshuathemiller/terraria/badge)](https://www.codefactor.io/repository/github/joshuathemiller/terraria)
+
 *A containerized version of Terraria Server (with [TShock](https://tshock.co/xf/index.php)) running on Linux, courtesy of [Mono](https://www.mono-project.com/)!*
 
 </div>
