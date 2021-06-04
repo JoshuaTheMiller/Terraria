@@ -13,7 +13,7 @@ ARG TERRARIA_USER_NAME=terraria
 COPY default_config.json world/
 COPY start.sh /usr/local/bin/ 
 
-ADD https://github.com/NyxStudios/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip /
+ADD https://github.com/Pryaxis/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip /
 
 # jq --> for finding/replacing json value easily
 # moreutils --> to leverage sponge, which makes outputing a file from the jq step easier
