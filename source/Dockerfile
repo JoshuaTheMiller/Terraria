@@ -1,6 +1,6 @@
 # Want to use slim, but ran into issues...
 FROM mono:6.8
-LABEL Author=JoshuaMiller
+LABEL Author="JoshuaMiller"
 
 EXPOSE 7777
 
