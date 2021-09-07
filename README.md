@@ -14,6 +14,12 @@ A Terraria with TShock server image! For the **Vanilla version**, check out the 
 
 </div>
 
+## ❗ A note on latest
+
+Be very cautious with blindly using `latest`... TShock can introduce breaking changes between versions. This can cause your world to be corrupted. It is best to specify an exact tag and only "upgrade" when you are confident that your world will not be ruined when changing to a new version of this image (and thus, a new version of TShock). Creating a backup of your world is advised before any upgrades are performed!
+
+(alternatively, you could roll the dice and use `latest`. Your choice.)
+
 ## ❗ Permission Issues after pulling latest?
 
 See [Migration issues related to permissions](#Migration-issues-related-to-permissions) below.
@@ -25,7 +31,7 @@ First and foremost, you're going to need Docker. Please check out [Docker's docu
 After installing docker, just run the following command and wait a few minutes:
 
 ```bash
-docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
+docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:4.5.5 -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
 ```
 
 ### Explanation of the command above
@@ -37,7 +43,7 @@ docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world -
 | `--memory=500m` | set the max amount of memory to use so that your system doesn't crash because of out of memory exceptions. |
 | `--mount source=terraria,target=/world` | create (or attach to if existing) a volume so that your world persists even when the container shuts down. |
 | `--name="terraria"` | name the running container "terraria" |
-| `trfc/terraria:latest` | use this image 😊 |
+| `trfc/terraria:4.5.5` | use this image 😊 (with a specific tag) |
 | `-autocreate 1 -world /world/Terrarium.wld` | create a small world named Terrarium OR use an existing world named Terrarium (default Terraria server command) |
 | `-password PleaseChange!` | sets the server password to "PleaseChange!" (custom command courtesy of this image) |
 
