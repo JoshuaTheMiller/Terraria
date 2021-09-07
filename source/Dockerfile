@@ -5,7 +5,8 @@ LABEL Author=JoshuaMiller
 EXPOSE 7777
 
 # https://github.com/Pryaxis/TShock/releases
-ARG TSHOCK_VERSION=4.3.26 
+ARG TSHOCK_VERSION=4.5.3 
+ARG TSHOCK_ORIG_ZIP_NAME=TShock_4.5.3_Terraria_1.4.2.3.zip
 
 ARG TERRARIA_USER_UID=8433
 ARG TERRARIA_USER_NAME=terraria
@@ -13,7 +14,7 @@ ARG TERRARIA_USER_NAME=terraria
 COPY default_config.json world/
 COPY start.sh /usr/local/bin/ 
 
-ADD https://github.com/Pryaxis/TShock/releases/download/v$TSHOCK_VERSION/tshock_$TSHOCK_VERSION.zip /
+ADD https://github.com/Pryaxis/TShock/releases/download/v$TSHOCK_VERSION/$TSHOCK_ORIG_ZIP_NAME /tshock_$TSHOCK_VERSION.zip
 
 # jq --> for finding/replacing json value easily
 # moreutils --> to leverage sponge, which makes outputing a file from the jq step easier

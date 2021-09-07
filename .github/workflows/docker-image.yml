@@ -1,0 +1,57 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  LATEST_TSHOCK_VERSION: '4.5.5'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        tshock:
+        - version: '4.5.5'      
+          zip: 'TShock4.5.5_Terraria_1.4.2.3.zip'
+        # Specifying the version and the zip is brittle... The Dockerfile
+        # does no validation to make sure the zip matches the intended version.
+        # Can either update the dockerfile to run off of zip ONLY, or add some 
+        # sort of validation...
+        - version: '4.5.3'      
+          zip: 'TShock_4.5.3_Terraria_1.4.2.3.zip'
+        - version: '4.3.26'  
+          zip: 'tshock_4.3.26.zip'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./source
+    steps:  
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1.10.0
+      with:
+        username: trfc
+        password: ${{ secrets.DOCKERHUB_TOKEN  }}
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: trfc/terraria:${{ matrix.tshock.version }}
+        context: ./source
+        build-args: |
+          TSHOCK_VERSION=${{ matrix.tshock.version }} 
+          TSHOCK_ORIG_ZIP_NAME=${{ matrix.tshock.zip }} 
+    - name: Build and push latest
+      uses: docker/build-push-action@v2
+      if: ${{ matrix.tshock.version == env.LATEST_TSHOCK_VERSION }}
+      with:
+        push: true
+        tags: trfc/terraria:latest
+        context: ./source
+        build-args: |
+          TSHOCK_ORIG_ZIP_NAME=${{ matrix.tshock.zip }}
+          TSHOCK_VERSION=${{ matrix.tshock.version }}
