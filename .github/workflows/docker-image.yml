@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, armTest ]
 
 env:
   LATEST_TSHOCK_VERSION: '4.5.5'
@@ -42,6 +42,7 @@ jobs:
         push: true
         tags: trfc/terraria:${{ matrix.tshock.version }}
         context: ./source
+        platforms: linux/amd64,linux/arm64,linux/arm/v7
         build-args: |
           TSHOCK_VERSION=${{ matrix.tshock.version }}
           TSHOCK_ORIG_ZIP_NAME=${{ matrix.tshock.zip }}
@@ -52,6 +53,7 @@ jobs:
         push: true
         tags: trfc/terraria:latest
         context: ./source
+        platforms: linux/amd64,linux/arm64,linux/arm/v7
         build-args: |
           TSHOCK_ORIG_ZIP_NAME=${{ matrix.tshock.zip }}
           TSHOCK_VERSION=${{ matrix.tshock.version }}
