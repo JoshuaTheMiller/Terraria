@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main, armTest ]
+    branches: [ main ]
 
 env:
   LATEST_TSHOCK_VERSION: '4.5.5'
