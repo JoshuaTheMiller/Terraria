@@ -31,7 +31,7 @@ First and foremost, you're going to need Docker. Please check out [Docker's docu
 After installing docker, just run the following command and wait a few minutes:
 
 ```bash
-docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:4.5.5 -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
+docker run -d -p 7777:7777 --memory=1500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:4.5.5 -autocreate 1 -world /world/Terrarium.wld -password PleaseChange!
 ```
 
 ### Explanation of the command above
@@ -40,7 +40,7 @@ docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world -
 | - | - |
 | `-d` | run the container in detached mode so you can go about your day. |
 | `-p 7777:7777` | map port 7777 to the container's port 7777 so that you can connect to the server (since the command does not change the server from its default port). |
-| `--memory=500m` | set the max amount of memory to use so that your system doesn't crash because of out of memory exceptions. |
+| `--memory=1500m` | set the max amount of memory to use so that your system doesn't crash because of out of memory exceptions. |
 | `--mount source=terraria,target=/world` | create (or attach to if existing) a volume so that your world persists even when the container shuts down. |
 | `--name="terraria"` | name the running container "terraria" |
 | `trfc/terraria:4.5.5` | use this image 😊 (with a specific tag) |
@@ -52,7 +52,7 @@ docker run -d -p 7777:7777 --memory=500m --mount source=terraria,target=/world -
 After installing docker, start the container (and your server) in interactive mode:
 
 ```bash
-docker run -it -p 7777:7777 --memory=500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest
+docker run -it -p 7777:7777 --memory=1500m --mount source=terraria,target=/world --name="terraria" trfc/terraria:latest
 ```
 
 Next, go through the prompts as it asks (make note of the name of your world).
