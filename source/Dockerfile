@@ -5,8 +5,8 @@ LABEL Author="JoshuaMiller"
 EXPOSE 7777
 
 # https://github.com/Pryaxis/TShock/releases
-ARG TSHOCK_VERSION=4.5.3 
-ARG TSHOCK_ORIG_ZIP_NAME=TShock_4.5.3_Terraria_1.4.2.3.zip
+ARG TSHOCK_VERSION=4.5.18
+ARG TSHOCK_ORIG_ZIP_NAME=TShock4.5.18_Terraria1.4.3.6.zip
 
 ARG TERRARIA_USER_UID=8433
 ARG TERRARIA_USER_NAME=terraria
